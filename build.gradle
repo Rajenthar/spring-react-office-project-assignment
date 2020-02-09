@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'garage.garageSide'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	compile group: 'javax.persistence', name: 'persistence-api', version: '1.0'
+	compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-ws', version: '1.4.7.RELEASE'
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	runtimeOnly 'org.postgresql:postgresql'
+//	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.9.Final'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.2.1.RELEASE'
+	compile group: 'org.springframework.security', name: 'spring-security-config', version: '5.2.1.RELEASE'
+	compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.2.1.RELEASE'
+
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
+
+
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.0-M1'
+
+//	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+test {
+	useJUnitPlatform()
+}
